@@ -2,6 +2,7 @@ syntax on
 set number
 colo desert
 
+set ttymouse=xterm2
 set mouse=a
 set hlsearch
 
@@ -30,14 +31,27 @@ set nomodeline                  " don't use modeline (security)
 
 set pastetoggle=<leader>p       " paste mode: avoid auto indent, treat chars
                                 "   as literal.
+" set number relativenumber
+" 
+" augroup numbertoggle
+"   autocmd!
+"   autocmd BufEnter,FocusGained,InsertLeave * set relativenumber
+"   autocmd BufLeave,FocusLost,InsertEnter   * set norelativenumber
+" augroup END
+" turn hybrid line numbers on
+
+" turn hybrid line numbers on
 set number relativenumber
+" set nu rnu
 
-augroup numbertoggle
-  autocmd!
-  autocmd BufEnter,FocusGained,InsertLeave * set relativenumber
-  autocmd BufLeave,FocusLost,InsertEnter   * set norelativenumber
-augroup END
-
+" turn hybrid line numbers off
+" set nonumber norelativenumber
+" set nonu nornu
+" 
+" " toggle hybrid line numbers
+" set number! relativenumber!
+" set nu! rnu!
+" 
 " Commenting blocks of code.
 autocmd FileType c,cpp,java,scala let b:comment_leader = '// '
 autocmd FileType sh,ruby,python   let b:comment_leader = '# '
